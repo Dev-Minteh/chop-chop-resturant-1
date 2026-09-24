@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chop Chop mobile navigation prototypes</title>
+  <style>
+    :root { --chop:#ea580c; --chop-dark:#c2410c; --ink:#1c1917; --ink-2:#44403c; --ink-3:#78716c; --cream:#fdf4e7; --line:#e7e5e4; --surface:#fff; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:#f5f1eb; color:var(--ink-2); font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    main { width:min(1180px,calc(100% - 40px)); margin:0 auto; padding:56px 0; }
+    .intro { max-width:680px; margin-bottom:36px; }
+    .eyebrow { margin:0; color:var(--chop-dark); font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+    h1 { margin:8px 0 12px; color:var(--ink); font-size:clamp(28px,4vw,48px); line-height:1.05; letter-spacing:-.04em; }
+    .intro p:last-child { margin:0; color:var(--ink-3); }
+    .gallery { display:grid; gap:24px; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:start; }
+    .prototype { min-width:0; }
+    .prototype h2 { margin:0 0 4px; color:var(--ink); font-size:20px; letter-spacing:-.02em; }
+    .prototype > p { min-height:48px; margin:0 0 14px; color:var(--ink-3); font-size:14px; }
+    .phone-frame { overflow:hidden; min-height:520px; border:7px solid var(--ink); border-radius:30px; background:var(--cream); box-shadow:0 12px 0 rgba(28,25,23,.08); }
+    .mobile-header { display:flex; align-items:center; justify-content:space-between; min-height:70px; padding:14px 16px; border-bottom:1px solid var(--line); background:var(--surface); }
+    .brand { display:flex; align-items:center; gap:8px; color:var(--ink); font-size:14px; font-weight:700; }
+    .brand img { width:32px; height:32px; border-radius:8px; }
+    .menu-button { display:grid; place-items:center; width:40px; height:40px; border:1px solid var(--line); border-radius:8px; background:var(--surface); color:var(--ink); font-size:22px; line-height:1; }
+    .menu-button.orange { border-color:var(--chop); background:var(--chop); color:#fff; }
+    .menu { padding:20px 16px 24px; background:var(--surface); }
+    .menu a { display:block; padding:12px 0; border-bottom:1px solid var(--line); color:var(--ink); font-weight:600; text-decoration:none; }
+    .menu .cta { margin-top:16px; border:0; border-radius:8px; background:var(--chop); color:#fff; text-align:center; }
+    .menu.cream-panel { background:var(--cream); padding:26px 20px 30px; }
+    .menu.cream-panel a { padding:14px 0; border:0; font-size:19px; }
+    .menu.cream-panel .cta { color:#fff; font-size:16px; }
+    .drawer-demo { position:relative; min-height:443px; background:linear-gradient(90deg,rgba(28,25,23,.26),rgba(28,25,23,.08)); }
+    .drawer-demo::after { position:absolute; inset:0; content:""; background:rgba(28,25,23,.12); }
+    .drawer { position:absolute; z-index:1; top:0; right:0; bottom:0; width:84%; padding:24px 20px; background:var(--surface); box-shadow:-10px 0 24px rgba(28,25,23,.12); }
+    .drawer .drawer-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; color:var(--ink); font-weight:700; }
+    .drawer a { display:block; padding:13px 0; border-bottom:1px solid var(--line); color:var(--ink); font-weight:600; text-decoration:none; }
+    .drawer .cta { margin-top:18px; border:0; border-radius:8px; background:var(--chop); color:#fff; text-align:center; }
+    .body-lines { padding:28px 20px; }
+    .body-lines span { display:block; width:70%; height:12px; margin-bottom:14px; border-radius:8px; background:rgba(120,113,108,.26); }
+    .body-lines span:nth-child(2) { width:48%; }
+    @media (max-width:800px) { main { padding:36px 0; } .gallery { grid-template-columns:1fr; max-width:390px; margin:0 auto; } .prototype > p { min-height:auto; } }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="intro">
+      <p class="eyebrow">Mobile navigation study</p>
+      <h1>Three ways to open Chop Chop.</h1>
+      <p>These are visual prototypes only. The current website is unchanged while you choose a direction.</p>
+    </div>
+    <section class="gallery" aria-label="Mobile navigation prototypes">
+      <article class="prototype">
+        <h2>01 · Compact dropdown</h2>
+        <p>Smallest change. The menu opens directly below the header.</p>
+        <div class="phone-frame">
+          <header class="mobile-header"><a class="brand" href="#"><img src="/assets/logo.svg" alt="">Chop Chop</a><button class="menu-button" aria-label="Close menu">×</button></header>
+          <nav class="menu" aria-label="Compact dropdown preview"><a href="#">How it works</a><a href="#">Popular</a><a href="#">Areas</a><a class="cta" href="#">Get the app ↗</a></nav>
+          <div class="body-lines"><span></span><span></span></div>
+        </div>
+      </article>
+      <article class="prototype">
+        <h2>02 · Cream panel</h2>
+        <p>Large tap targets and a stronger connection to the hero band.</p>
+        <div class="phone-frame">
+          <header class="mobile-header"><a class="brand" href="#"><img src="/assets/logo.svg" alt="">Chop Chop</a><button class="menu-button orange" aria-label="Close menu">×</button></header>
+          <nav class="menu cream-panel" aria-label="Cream panel preview"><a href="#">How it works</a><a href="#">Popular</a><a href="#">Areas</a><a class="cta" href="#">Get the app ↗</a></nav>
+          <div class="body-lines"><span></span><span></span></div>
+        </div>
+      </article>
+      <article class="prototype">
+        <h2>03 · Right-side drawer</h2>
+        <p>App-like navigation with the page remaining visible behind it.</p>
+        <div class="phone-frame">
+          <header class="mobile-header"><a class="brand" href="#"><img src="/assets/logo.svg" alt="">Chop Chop</a><button class="menu-button" aria-label="Close menu">×</button></header>
+          <div class="drawer-demo">
+            <aside class="drawer" aria-label="Right-side drawer preview"><div class="drawer-head"><span>Menu</span><span aria-hidden="true">×</span></div><a href="#">How it works</a><a href="#">Popular</a><a href="#">Areas</a><a class="cta" href="#">Get the app ↗</a></aside>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
