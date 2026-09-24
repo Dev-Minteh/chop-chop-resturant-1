@@ -44,3 +44,10 @@ Remaining manual check: compare future screenshot captures against supplied comp
 - Navigation-link close: passed.
 - Desktop restoration at 1024px: passed; hamburger hidden and inline navigation visible.
 - Overflow check: passed at desktop breakpoint.
+
+## Full reference audit results - 2026-09-24
+
+- Production build after content/style corrections: passed.
+- Mobile 390px: six dishes, six delivery areas, finalized hero and section headings, all supplied images loaded on a clean Vite process, and no horizontal overflow.
+- Desktop 1440px: two-column hero, three-column dish grid, three footer link columns, left-aligned sections, centered download band, and no horizontal overflow.
+- Source diagnostics for `main.ts`, `data.ts`, and `style.css`: no errors.

@@ -37,6 +37,12 @@ All documented hover states move: links lift, primary buttons lift, the hero arr
 
 The mobile comp preserves generous vertical rhythm, places the hero phone below the CTA, and gives each card a full-width readable body. The footer CTA buttons stack. No horizontal scrolling should be required at narrow widths.
 
+## Reference reconciliation - 2026-09-24
+
+The supplied desktop and mobile comps contain a finalized content pass that supersedes the earlier first-pass copy: the hero uses the delivery-area eyebrow and “Dinner is one tap away.”, the steps describe kitchens, orders, and riders, dish cards use the supplied kitchen names, badges, and prices, delivery areas use fixed minute values, and the download/footer bands use finalized copy. The implementation now follows those references.
+
+Visual alignment was also corrected: hero and section content are left-aligned, steps read as left-aligned editorial columns, the download band is centered, and the footer uses three link columns.
+
 ## Mobile navigation gap
 
 The current implementation stacks the full desktop navigation below the logo below `sm`, which creates unnecessary vertical height. Three hamburger prototypes are documented in `MOBILE_NAV_PROTOTYPES.md`; the selected option will become the mobile-only navigation behavior while desktop navigation remains unchanged.

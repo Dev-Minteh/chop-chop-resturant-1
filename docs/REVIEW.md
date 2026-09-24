@@ -53,3 +53,10 @@
 - Desktop verification: at 1024px the toggle is hidden, inline navigation is visible, and no horizontal overflow is introduced.
 - No new dependency was added.
 - Visual follow-up: the initial open state caused the brand to wrap and links to sit in a narrow centered track. Corrected by allowing the header to wrap deliberately and making the open nav a full-width grid track with left-aligned links.
+
+## Full reference audit - 2026-09-24
+
+- Confirmed the earlier implementation was missing finalized comp copy and several metadata details, not only visual spacing.
+- Updated hero, steps, dish cards, delivery areas, download band, footer links, badges, prices, and section alignment.
+- Clean-server browser audit passed at 390px and 1440px: content counts, responsive columns, image loading, and overflow checks passed.
+- The stale 5173 preview served fallback HTML for `phone.svg` and step SVGs; a clean Vite process on 5174 served all assets correctly. Source and public asset hashes matched, so no asset replacement was needed.

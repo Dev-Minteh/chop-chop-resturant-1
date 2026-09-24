@@ -36,3 +36,11 @@ Discovery and implementation are complete. The TypeScript/Vite foundation and re
 - Added accessible `aria-expanded` state, dynamic open/close label, Escape close, and link-selection close behavior.
 - Preserved the inline desktop navigation at `sm` and above.
 - Refined the open state after browser comparison: fixed header wrapping, made the panel full width, left-aligned links, and kept the CTA full width.
+
+### 2026-09-24 - Full reference comparison
+
+- Compared the current implementation against `comp-desktop.png` and `comp-mobile.png`.
+- Confirmed and implemented missing finalized copy and metadata across hero, steps, dishes, delivery areas, download CTA, and footer.
+- Corrected whole-page alignment and responsive styling to match the references.
+- Verified on a clean Vite server at port 5174: all supplied images load, mobile has no horizontal overflow, and desktop retains the two-column hero and three-column grids.
+- The original port 5173 preview had stale fallback responses for composite SVGs; restarting Vite resolved the preview issue without modifying the supplied assets.

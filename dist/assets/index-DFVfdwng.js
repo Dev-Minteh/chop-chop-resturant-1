@@ -1,48 +1,33 @@
-import './style.css'
-import { deliveryAreas, dishes, steps } from './data'
-
-const app = document.querySelector<HTMLDivElement>('#app')
-
-if (!app) {
-	throw new Error('App root was not found')
-}
-
-const stepMarkup = steps.map((step) => `
+(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))r(a);new MutationObserver(a=>{for(const i of a)if(i.type==="childList")for(const t of i.addedNodes)t.tagName==="LINK"&&t.rel==="modulepreload"&&r(t)}).observe(document,{childList:!0,subtree:!0});function c(a){const i={};return a.integrity&&(i.integrity=a.integrity),a.referrerPolicy&&(i.referrerPolicy=a.referrerPolicy),a.crossOrigin==="use-credentials"?i.credentials="include":a.crossOrigin==="anonymous"?i.credentials="omit":i.credentials="same-origin",i}function r(a){if(a.ep)return;a.ep=!0;const i=c(a);fetch(a.href,i)}})();const l=[{image:"/assets/step-1.svg",number:"Step 1",title:"Pick a kitchen",copy:"Forty kitchens from Westfield to Brusubi, with live opening hours and honest delivery times."},{image:"/assets/step-2.svg",number:"Step 2",title:"Build your order",copy:"Extra pepper, no onions, two spoons. Every kitchen readies your note before it starts cooking."},{image:"/assets/step-3.svg",number:"Step 3",title:"Track your rider",copy:"See the scooter on the map from the moment it leaves. Pay cash at the gate or by mobile money in the app."}],p=[{image:"/assets/dish-1.svg",name:"Benachin",kitchen:"Mama Binta's Kitchen",location:"Westfield",price:"D250",badge:"Popular"},{image:"/assets/dish-2.svg",name:"Domoda",kitchen:"Kairaba Corner",location:"Kololi",price:"D200",badge:"Popular"},{image:"/assets/dish-3.svg",name:"Chicken yassa",kitchen:"Senegambia Grill",location:"Kololi",price:"D350",badge:"Spicy"},{image:"/assets/dish-4.svg",name:"Afra",kitchen:"Afra Bantaba",location:"Bakau",price:"D400",badge:"Spicy"},{image:"/assets/dish-5.svg",name:"Superkanja",kitchen:"Aunty Haddy's",location:"Serrekunda",price:"D180",badge:"Vegetarian"},{image:"/assets/dish-6.svg",name:"Tapalapa and egg",kitchen:"Morning Bread",location:"Bakau",price:"D75",badge:"Breakfast"}],h=[{name:"Serrekunda",time:"25 min"},{name:"Bakau",time:"30 min"},{name:"Kololi",time:"30 min"},{name:"Brusubi",time:"40 min"},{name:"Banjul",time:"45 min"},{name:"Lamin",time:"45 min"}],d=document.querySelector("#app");if(!d)throw new Error("App root was not found");const u=l.map(e=>`
 	<article class="step">
-		<img src="${step.image}" alt="" class="step__image">
-		<p class="step__number">${step.number}</p>
-		<h3>${step.title}</h3>
-		<p>${step.copy}</p>
+		<img src="${e.image}" alt="" class="step__image">
+		<p class="step__number">${e.number}</p>
+		<h3>${e.title}</h3>
+		<p>${e.copy}</p>
 	</article>
-`).join('')
-
-const dishMarkup = dishes.map((dish) => `
+`).join(""),m=p.map(e=>`
 	<article class="dish-card">
-		<img src="${dish.image}" alt="" class="dish-card__image">
+		<img src="${e.image}" alt="" class="dish-card__image">
 		<div class="dish-card__body">
 			<div class="dish-card__heading">
 				<div>
-					<h3>${dish.name}</h3>
-					<p>${dish.kitchen} <span>·</span> ${dish.location}</p>
+					<h3>${e.name}</h3>
+					<p>${e.kitchen} <span>·</span> ${e.location}</p>
 				</div>
-				${dish.badge ? `<span class="badge badge--${dish.badge.toLowerCase()}">${dish.badge}</span>` : ''}
+				${e.badge?`<span class="badge badge--${e.badge.toLowerCase()}">${e.badge}</span>`:""}
 			</div>
 			<div class="dish-card__footer">
-				<strong>${dish.price}</strong>
-				<button class="add-button" type="button" data-dish="${dish.name}">Add</button>
+				<strong>${e.price}</strong>
+				<button class="add-button" type="button" data-dish="${e.name}">Add</button>
 			</div>
 		</div>
 	</article>
-`).join('')
-
-const areaMarkup = deliveryAreas.map((area) => `
+`).join(""),g=h.map(e=>`
 	<li class="area-row">
-		<span>${area.name}</span>
-		<span>${area.time}</span>
+		<span>${e.name}</span>
+		<span>${e.time}</span>
 	</li>
-`).join('')
-
-app.innerHTML = `
+`).join("");d.innerHTML=`
 	<header class="site-header">
 		<div class="container header-inner">
 			<a class="brand" href="#top" aria-label="Chop Chop home">
@@ -87,7 +72,7 @@ app.innerHTML = `
 					<h2>How it works</h2>
 					<p>Three steps, and none of them is a phone call.</p>
 				</div>
-				<div class="steps-grid">${stepMarkup}</div>
+				<div class="steps-grid">${u}</div>
 			</div>
 		</section>
 
@@ -97,7 +82,7 @@ app.innerHTML = `
 					<h2>Popular this week</h2>
 					<p>What the Kombos ordered most in the last seven days.</p>
 				</div>
-				<div class="dish-grid">${dishMarkup}</div>
+				<div class="dish-grid">${m}</div>
 			</div>
 		</section>
 
@@ -107,7 +92,7 @@ app.innerHTML = `
 					<h2>Where we deliver</h2>
 					<p>Typical time from the kitchen to your gate. Lamin and Banjul open at lunch and dinner only.</p>
 				</div>
-				<ul class="area-grid">${areaMarkup}</ul>
+				<ul class="area-grid">${g}</ul>
 			</div>
 		</section>
 
@@ -139,35 +124,4 @@ app.innerHTML = `
 		</div>
 		<div class="container copyright"><span>© 2026 Chop Chop. A fictional company, built for CS200.</span></div>
 	</footer>
-`
-
-document.querySelectorAll<HTMLButtonElement>('.add-button').forEach((button) => {
-	button.addEventListener('click', () => {
-		const added = button.classList.toggle('is-added')
-		button.textContent = added ? 'Added' : 'Add'
-		button.setAttribute('aria-pressed', String(added))
-	})
-})
-
-const menuToggle = document.querySelector<HTMLButtonElement>('.menu-toggle')
-const primaryNavigation = document.querySelector<HTMLElement>('#primary-navigation')
-
-if (menuToggle && primaryNavigation) {
-	const setMenuOpen = (isOpen: boolean) => {
-		menuToggle.setAttribute('aria-expanded', String(isOpen))
-		menuToggle.querySelector('.sr-only')!.textContent = isOpen ? 'Close menu' : 'Open menu'
-		primaryNavigation.classList.toggle('is-open', isOpen)
-	}
-
-	menuToggle.addEventListener('click', () => {
-		setMenuOpen(menuToggle.getAttribute('aria-expanded') !== 'true')
-	})
-
-	primaryNavigation.querySelectorAll<HTMLAnchorElement>('a').forEach((link) => {
-		link.addEventListener('click', () => setMenuOpen(false))
-	})
-
-	document.addEventListener('keydown', (event) => {
-		if (event.key === 'Escape') setMenuOpen(false)
-	})
-}
+`;document.querySelectorAll(".add-button").forEach(e=>{e.addEventListener("click",()=>{const s=e.classList.toggle("is-added");e.textContent=s?"Added":"Add",e.setAttribute("aria-pressed",String(s))})});const o=document.querySelector(".menu-toggle"),n=document.querySelector("#primary-navigation");if(o&&n){const e=s=>{o.setAttribute("aria-expanded",String(s)),o.querySelector(".sr-only").textContent=s?"Close menu":"Open menu",n.classList.toggle("is-open",s)};o.addEventListener("click",()=>{e(o.getAttribute("aria-expanded")!=="true")}),n.querySelectorAll("a").forEach(s=>{s.addEventListener("click",()=>e(!1))}),document.addEventListener("keydown",s=>{s.key==="Escape"&&e(!1)})}
